@@ -29,8 +29,8 @@ where
 
 #[cfg(test)]
 mod tests {
-    use crate::Vector;
-    use crate::Matrix;
+    use crate::pulgamecanica::Vector;
+    use crate::pulgamecanica::Matrix;
     use super::*;
 
     #[test]

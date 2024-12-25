@@ -1,5 +1,5 @@
-use crate::scalar::Scalar;
-use crate::Vector;
+use crate::pulgamecanica::scalar::Scalar;
+use crate::pulgamecanica::Vector;
 use std::fmt;
 
 /// A struct representing a mathematical matrix.
@@ -22,7 +22,7 @@ impl<K: Scalar, const N: usize, const M: usize> From<[[K; M]; N]> for Matrix<K> 
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let u = Matrix::from([
     ///     [8., 5., -2.],
@@ -32,7 +32,7 @@ impl<K: Scalar, const N: usize, const M: usize> From<[[K; M]; N]> for Matrix<K> 
     /// ```
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let u = Matrix::from([
     ///     [2., 0., 0.],
@@ -57,7 +57,7 @@ impl<K: Scalar + fmt::Display> fmt::Display for Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let m = Matrix::from([
     ///     [2., 3.],
@@ -94,7 +94,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![vec![1.0, 2.0], vec![3.0, 4.0]]);
     /// ```
@@ -111,7 +111,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![vec![1.0, 2.0], vec![3.0, 4.0]]);
     /// assert_eq!(mat.size(), (2, 2));
@@ -130,7 +130,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1, 2, 3],
@@ -154,7 +154,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1, 2, 3],
@@ -180,7 +180,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![vec![1.0, 2.0], vec![3.0, 4.0]]);
     /// assert!(mat.is_square());
@@ -202,7 +202,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![vec![1.0, 2.0], vec![3.0, 4.0]]);
     /// mat.print();
@@ -218,7 +218,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![vec![1.0, 2.0], vec![3.0, 4.0]]);
     /// let vec = mat.flatten();
@@ -242,7 +242,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mut mat1 = Matrix::new(vec![
     ///     vec![42.0, 4.2],
@@ -283,7 +283,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mut mat1 = Matrix::new(vec![
     ///     vec![42.0, 4.2],
@@ -322,7 +322,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mut mat = Matrix::new(vec![
     ///     vec![1.0, 2.0],
@@ -379,7 +379,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::{Matrix, Vector};
+    /// use matrix::pulgamecanica::{Matrix, Vector};
     ///
     /// // Define a 2x3 matrix
     /// let mat = Matrix::new(vec![
@@ -448,7 +448,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// // Define a 2x3 matrix
     /// let mat1 = Matrix::new(vec![
@@ -525,7 +525,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1.0_f32, 2.0, 3.0],
@@ -558,7 +558,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1.0, 2.0, 3.0],
@@ -599,7 +599,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mut mat = Matrix::new(vec![
     ///     vec![2.0, 1.0, -1.0],
@@ -737,7 +737,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![3.0, 8.0],
@@ -779,7 +779,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![3.0, 8.0, 4.0],
@@ -835,7 +835,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1.0, 2.0, 3.0, 4.0],
@@ -889,7 +889,7 @@ impl<K: Scalar> Matrix<K> {
     ///
     /// # Example
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![1.0, 2.0],
@@ -1063,7 +1063,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![4.0, 7.0],
@@ -1121,7 +1121,7 @@ impl<K: Scalar> Matrix<K> {
     /// # Example
     ///
     /// ```
-    /// use matrix::Matrix;
+    /// use matrix::pulgamecanica::matrix::Matrix;
     ///
     /// let mat = Matrix::new(vec![
     ///     vec![4.0, 7.0],

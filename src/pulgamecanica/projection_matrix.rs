@@ -1,4 +1,4 @@
-use crate::matrix::Matrix;
+use crate::pulgamecanica::matrix::Matrix;
 
 /// Generates a 4x4 perspective projection matrix for a 3D rendering pipeline with a symmetric frustum.
 ///
@@ -73,8 +73,8 @@ use crate::matrix::Matrix;
 /// # Example
 ///
 /// ```rust
-/// use matrix::Matrix;
-/// use matrix::projection_matrix::projection;
+/// use matrix::pulgamecanica::Matrix;
+/// use matrix::pulgamecanica::projection_matrix::projection;
 /// 
 /// let fov = 1.57; // Field of view in radians (~90 degrees)
 /// let ratio = 16.0 / 9.0; // Aspect ratio of 16:9

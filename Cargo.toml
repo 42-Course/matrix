@@ -1,6 +1,6 @@
 [package]
-name = "pulgamecanica_matrix"
-version = "1.0.0"
+name = "matrix"
+version = "1.0.1"
 authors = ["pulgamecanica pulgamecanica11@gmail.com"]
 description = "A Rust library for matrix operations and linear algebra"
 license = "MIT"
