@@ -1,0 +1,17 @@
+/target/
+/**/*.rs.bk
+**/*.log
+**/*.swp
+**/*.DS_Store
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.iml
+
+# Backup files
+*.bak
+*.tmp
+
+# Misc
+*.log

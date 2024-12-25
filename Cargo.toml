@@ -1,0 +1,15 @@
+[package]
+name = "matrix"
+version = "1.0.0"
+authors = ["pulgamecanica pulgamecanica11@gmail.com"]
+description = "A Rust library for matrix operations and linear algebra"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/42-Course/matrix"
+documentation = "https://pulgamecanica.github.io/MatrixDoc/matrix/"
+keywords = ["math", "matrix", "linear-algebra"]
+categories = ["science", "mathematics"]
+edition = "2021"
+
+[dependencies]
+num = "0.4"
