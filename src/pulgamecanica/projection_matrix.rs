@@ -73,8 +73,8 @@ use crate::pulgamecanica::matrix::Matrix;
 /// # Example
 ///
 /// ```rust
-/// use matrix::pulgamecanica::Matrix;
-/// use matrix::pulgamecanica::projection_matrix::projection;
+/// use pulgamecanica_matrix::pulgamecanica::Matrix;
+/// use pulgamecanica_matrix::pulgamecanica::projection_matrix::projection;
 /// 
 /// let fov = 1.57; // Field of view in radians (~90 degrees)
 /// let ratio = 16.0 / 9.0; // Aspect ratio of 16:9

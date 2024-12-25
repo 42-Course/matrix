@@ -25,7 +25,7 @@ impl Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let complex_num = Complex::new(3.0, 4.0);
     /// assert_eq!(complex_num.real, 3.0);
@@ -48,7 +48,7 @@ impl Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let complex_num = Complex::new(3.0, 4.0);
     /// let conjugate = complex_num.conjugate();
@@ -73,7 +73,7 @@ impl Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let complex_num = Complex::new(3.0, 4.0);
     /// assert_eq!(complex_num.magnitude(), 5.0);
@@ -117,7 +117,7 @@ impl Add for Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let a = Complex::new(3.0, 4.0);
     /// let b = Complex::new(1.0, 2.0);
@@ -152,7 +152,7 @@ impl Sub for Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let a = Complex::new(3.0, 4.0);
     /// let b = Complex::new(1.0, 2.0);
@@ -187,7 +187,7 @@ impl Mul for Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let a = Complex::new(3.0, 4.0);
     /// let b = Complex::new(1.0, 2.0);
@@ -222,7 +222,7 @@ impl Div for Complex {
     /// # Example
     ///
     /// ```
-    /// use matrix::pulgamecanica::complex::Complex;
+    /// use pulgamecanica_matrix::pulgamecanica::complex::Complex;
     ///
     /// let a = Complex::new(3.0, 2.0);
     /// let b = Complex::new(1.0, -1.0);
