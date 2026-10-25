@@ -109,18 +109,48 @@ pub fn projection(fov: f32, ratio: f32, near: f32, far: f32) -> Matrix<f32> {
 
     // Compute matrix elements
     let a = 2.0 * near / (r - l);
-    let b = 2.0 * near / (t - b);
     let c = (r + l) / (r - l);
     let d = (t + b) / (t - b);
+    // Named separately from `b` (the bottom frustum bound) — reusing `b`
+    // here previously shadowed it before `d` was computed above, silently
+    // feeding `d` the Y-scale factor instead of the bottom bound and
+    // corrupting the Y-centering term.
+    let y_scale = 2.0 * near / (t - b);
     let e = -(far + near) / (far - near);
     let f = -(2.0 * far * near) / (far - near);
 
     Matrix {
         data: vec![
             vec![a, 0.0, c, 0.0],
-            vec![0.0, b, d, 0.0],
+            vec![0.0, y_scale, d, 0.0],
             vec![0.0, 0.0, e, f],
             vec![0.0, 0.0, -1.0, 0.0],
         ],
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// This symmetric frustum always has `b = -t`, so the Y-centering term
+    /// `d = (t + b) / (t - b)` must always be exactly 0 — a prior bug (`b`
+    /// shadowed by the Y-scale factor before this line ran) made it nonzero,
+    /// which shifted everything rendered off-screen vertically.
+    #[test]
+    fn y_centering_term_is_zero_for_a_symmetric_frustum() {
+        let m = projection(1.2, 16.0 / 9.0, 0.1, 100.0);
+        assert_eq!(m.data[1][2], 0.0);
+    }
+
+    /// A point straight down the view axis must land at NDC (0, 0) after
+    /// the perspective divide, for any fov/aspect/near/far.
+    #[test]
+    fn point_on_the_view_axis_is_centered_after_perspective_divide() {
+        let m = projection(60f32.to_radians(), 16.0 / 9.0, 0.1, 100.0);
+        let clip = m.mul_vec(&crate::pulgamecanica::Vector::new(vec![0.0, 0.0, -10.0, 1.0]));
+        let ndc = [clip.data[0] / clip.data[3], clip.data[1] / clip.data[3]];
+        assert!(ndc[0].abs() < 1e-6, "ndc.x = {}", ndc[0]);
+        assert!(ndc[1].abs() < 1e-6, "ndc.y = {}", ndc[1]);
     }
 }
