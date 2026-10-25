@@ -34,33 +34,17 @@ pub trait Scalar: Copy + Clone + Debug + Zero
     fn from_f32(value: f32) -> Self;
 }
 
-// Specialize for f32 using SIMD FMA intrinsics
-#[cfg(target_arch = "x86_64")]
-use core::arch::x86_64::{
-    _mm_fmadd_ps, _mm_set1_ps, _mm_cvtss_f32
-};
-
+// `f32::mul_add` is a true fused multiply-add on every target: a single FMA
+// instruction where the CPU has one, a correct software fallback elsewhere
+// (wasm32, aarch64 without FMA, ...). Raw x86 intrinsics would only compile
+// on x86_64 and fault on x86_64 CPUs lacking the FMA extension.
 impl Scalar for f32 {
     fn fma(a: f32, b: f32, c: f32) -> f32 {
-        unsafe {
-            // Use SIMD registers to do FMA: a * b + c
-            let vec_a = _mm_set1_ps(a);
-            let vec_b = _mm_set1_ps(b);
-            let vec_c = _mm_set1_ps(c);
-            let result = _mm_fmadd_ps(vec_a, vec_b, vec_c);
-            _mm_cvtss_f32(result) // Return the first element of the SIMD result
-        }
+        a.mul_add(b, c)
     }
 
     fn fms(a: f32, b: f32, c: f32) -> f32 {
-        unsafe {
-            // Use SIMD registers to do FMA: a * b + c
-            let vec_a = _mm_set1_ps(a);
-            let vec_b = _mm_set1_ps(b);
-            let vec_c = _mm_set1_ps(-c);
-            let result = _mm_fmadd_ps(vec_a, vec_b, vec_c);
-            _mm_cvtss_f32(result) // Return the first element of the SIMD result
-        }
+        a.mul_add(b, -c)
     }
 
     fn from_f32(value: f32) -> Self {
